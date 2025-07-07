@@ -209,7 +209,7 @@ def jobsposting_new():
             new_status = "Đã viết lại Tiêu đê hoặc Mô tả hoặc Quyền lợi hoặc Yêu cầu.\n"
         data = DataModel(new_id, result, message, data['data']['data'], new_status)
         error = None
-      except Exception as err:
+     except Exception as err:
         print(err)
         error = ErrorModel(200, message)
         data = None

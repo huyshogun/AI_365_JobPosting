@@ -27,11 +27,11 @@ def jobsposting_new():
     message = {}
     status = 1
     if status == 1:
- #     try:
-#        api = f"https://timviec365.vn/api_app/chi_tiet_tin.php?newid={new_id}"
-        with open(f"test_post/test_post_{new_id}.json", "r", encoding="utf-8") as f:
-           data = json.load(f)
-#        data = requests.get(api).json()
+     try:
+        api = f"https://timviec365.vn/api_app/chi_tiet_tin.php?newid={new_id}"
+#        with open(f"test_post/test_post_{new_id}.json", "r", encoding="utf-8") as f:
+#           data = json.load(f)
+        data = requests.get(api).json()
         if data['data']['data'] != None :
             dictionary = data['data']['data']
 #            mota = data['data']['data']['new_mota']
@@ -209,10 +209,10 @@ def jobsposting_new():
             new_status = "Đã viết lại Tiêu đê hoặc Mô tả hoặc Quyền lợi hoặc Yêu cầu.\n"
         data = DataModel(new_id, result, message, data['data']['data'], new_status)
         error = None
-#      except Exception as err:
-#        print(err)
-#        error = ErrorModel(200, message)
- #       data = None
+      except Exception as err:
+        print(err)
+        error = ErrorModel(200, message)
+        data = None
         
     if data is not None:
         data = vars(data)
